@@ -604,6 +604,10 @@ video {
   height: 9rem;
 }
 
+.h-40 {
+  height: 10rem;
+}
+
 .w-12 {
   width: 3rem;
 }
@@ -626,6 +630,18 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-1 {
+  width: 0.25rem;
+}
+
+.w-8\/12 {
+  width: 66.666667%;
+}
+
+.w-11\/12 {
+  width: 91.666667%;
 }
 
 .flex-auto {
@@ -801,10 +817,6 @@ video {
   padding-top: 0.75rem;
 }
 
-.pt-40 {
-  padding-top: 10rem;
-}
-
 .pt-5 {
   padding-top: 1.25rem;
 }
@@ -815,14 +827,6 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
-}
-
-.pt-52 {
-  padding-top: 13rem;
-}
-
-.pt-64 {
-  padding-top: 16rem;
 }
 
 .pt-80 {
@@ -1042,6 +1046,10 @@ a {
 }
 
 @media (min-width: 1024px) {
+  .lg\:h-screen {
+    height: 100vh;
+  }
+
   .lg\:w-1\/4 {
     width: 25%;
   }
