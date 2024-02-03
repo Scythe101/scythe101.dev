@@ -42,6 +42,7 @@ function scrollHandler() {
 
 window.addEventListener('scroll', scrollHandler);
 
+var pfp = document.getElementById('pfp');
 const checkpoint = 300;
 window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
