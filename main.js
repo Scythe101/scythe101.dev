@@ -12,7 +12,9 @@ const observer = new IntersectionObserver((entries) =>{
 function pfpScroll(){
   const elem = document.getElementById("pfpTwo");
   const rect = elem.getBoundingClientRect();
-  if(window.screen.width > 500){
+  if(/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){}
+  else
+  {
     if(rect.bottom < -50){
       
       document.getElementById('pfp').style.transitionDuration = "100ms";
@@ -37,7 +39,7 @@ function fadeOutOnScroll(element) {
 	if (!element) {
 		return;
 	}
-	if(window.screen.width < 500||window.screen.height < 700){
+	if(/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
     return;
   }
   console.log(window.screen.width);
