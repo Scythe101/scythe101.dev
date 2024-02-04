@@ -12,16 +12,17 @@ const observer = new IntersectionObserver((entries) =>{
 function pfpScroll(){
   const elem = document.getElementById("pfpTwo");
   const rect = elem.getBoundingClientRect();
-
-  if(rect.bottom < -50){
-    
-    document.getElementById('pfp').style.transitionDuration = "100ms";
-    document.getElementById('pfp').style.transform = "translateY(+1%)";
-    
-    
-  }
-  else{
-    document.getElementById('pfp').style.transform = "translateY(-120%)";
+  if(window.screen.width > 500){
+    if(rect.bottom < -50){
+      
+      document.getElementById('pfp').style.transitionDuration = "100ms";
+      document.getElementById('pfp').style.transform = "translateY(+1%)";
+      
+      
+    }
+    else{
+      document.getElementById('pfp').style.transform = "translateY(-120%)";
+    }
   }
 }
 
@@ -36,20 +37,25 @@ function fadeOutOnScroll(element) {
 	if (!element) {
 		return;
 	}
-	
+	if(window.screen.width < 500||window.screen.height < 700){
+    return;
+  }
+  console.log(window.screen.width);
+  console.log(window.screen.height);
 	var distanceToTop = window.pageYOffset + element.getBoundingClientRect().top - 170;
 	var elementHeight = element.offsetHeight;
 	var scrollTop = document.documentElement.scrollTop;
 	
 	var opacity = 1;
-	
-	if (scrollTop > distanceToTop) {
-		opacity = 1 - (scrollTop - distanceToTop) / elementHeight;
-	}
-	
-	if (opacity >= 0) {
-		element.style.opacity = opacity;
-	}
+	if(window.screen.width > 500&&window.screen.height > 400){
+    if (scrollTop > distanceToTop) {
+      opacity = 1 - (scrollTop - distanceToTop) / elementHeight;
+    }
+    
+    if (opacity >= 0) {
+      element.style.opacity = opacity;
+    }
+  }
 }
 
 function scrollHandler() {
@@ -64,12 +70,14 @@ var pfp = document.getElementById('pfp');
 const checkpoint = 300;
 window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
-  if (currentScroll <= checkpoint) {
-    opacity = 0 + currentScroll / checkpoint;
-  } else {
-    opacity = 1;
+  if(window.screen.width > 500||window.screen.height > 400){
+    if (currentScroll <= checkpoint) {
+      opacity = 0 + currentScroll / checkpoint;
+    } else {
+      opacity = 1;
+    }
+    document.getElementById("announcements").style.opacity = opacity;
   }
-  document.getElementById("announcements").style.opacity = opacity;
 });
 
 const hiddenElements = document.querySelectorAll(".hidden");
