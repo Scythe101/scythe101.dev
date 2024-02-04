@@ -9,6 +9,22 @@ const observer = new IntersectionObserver((entries) =>{
     });
 });
 
+function pfpScroll(){
+  const elem = document.getElementById("pfpTwo");
+  const rect = elem.getBoundingClientRect();
+
+  if(rect.bottom < -50){
+    
+    document.getElementById('pfp').style.transitionDuration = "100ms";
+    document.getElementById('pfp').style.transform = "translateY(+1%)";
+    
+    
+  }
+  else{
+    document.getElementById('pfp').style.transform = "translateY(-120%)";
+  }
+}
+
 function notDone(){
     alert('Not finished yet');
 }
@@ -38,6 +54,8 @@ function fadeOutOnScroll(element) {
 
 function scrollHandler() {
 	fadeOutOnScroll(header);
+  
+  
 }
 
 window.addEventListener('scroll', scrollHandler);
@@ -56,3 +74,6 @@ window.addEventListener("scroll", () => {
 
 const hiddenElements = document.querySelectorAll(".hidden");
 hiddenElements.forEach((el) => observer.observe(el));
+
+window.addEventListener('scroll', pfpScroll);
+pfpScroll();
